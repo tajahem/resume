@@ -524,7 +524,7 @@ class Controls {
         
         document.getElementById('expand-button').onclick = function () { controls.open(); };
         document.getElementById('expanded-controls').style.height = "0";
-        this.animateControls('contract', (state.isDesktop) ? '2.5em' : '3em');
+        this.animateControls('contract', (state.isDesktop) ? '2.5em' : '7vh');
         this.flipExpandButton();
         
         this.isOpen = false;
@@ -548,7 +548,7 @@ class Controls {
     }
 
     markFocusButton() {
-        let focusText = 'current-focus button';
+        let focusText = 'button current-focus';
         if(document.getElementsByClassName(focusText)[0]){
             document.getElementsByClassName(focusText)[0].className = 'button';
         }

@@ -154,10 +154,8 @@ h2 {
   text-decoration: none;
 }
 /* requires increased specificity or is overriden */
-div .current-focus {
-  background-color: rgb(50, 150, 50);
-}
-
+/*div 
+*/
 .page {
   display: block;
   position: absolute;
@@ -336,6 +334,14 @@ div .current-focus {
     border-top: 1em solid rgb(75, 75, 75);
   }
 
+  .current-focus {
+    background-color: rgb(50, 150, 50);
+  }
+
+  .mobile-icon {
+    display: none;
+  }
+
   .skill-category {
     display: inline-block;
     padding: .5em;
@@ -395,10 +401,23 @@ div .current-focus {
     vertical-align: top; 
   }
 
+  .skew {
+    transform: skew(20deg);
+    -webkit-transform: skew(20deg); 
+    -moz-transform: skew(20deg); 
+    -o-transform: skew(20deg);
+  }
+
+  .unskew {
+    transform: skew(-20deg);
+    -webkit-transform: skew(-20deg); 
+    -moz-transform: skew(-20deg); 
+    -o-transform: skew(-20deg);
+  }
+
   /*desktop ids*/
   #notice {
     background-color: rgb(250, 147, 13);
-    border-radius: 1em;
     border-bottom: solid 2px rgb(75, 75, 75);
     padding: .5em 6em .5em 1em;
     position: fixed;
@@ -516,7 +535,7 @@ div .current-focus {
   }
   @keyframes contract-controls {
     from { max-height: 94em; }
-    to { max-height: 3em; }
+    to { max-height: 7vh; }
   }
 
   .page, .button, .button a, .section-content, #focus-controls {
@@ -566,7 +585,16 @@ div .current-focus {
   
   .current-focus {
     margin: 1em auto;
-    max-width: 33%;
+    background-color: white;
+    color: rgb(75, 175, 75);
+  }
+
+  .mobile-icon div {
+    width: 20vw;
+    height: 1vh;
+    margin: .5vh auto;
+    background-color: white;
+    border-radius: 1em;
   }
 
   .section {
@@ -624,6 +652,14 @@ div .current-focus {
   #focus-controls {
     max-height: 50vh;
     overflow: scroll;
+  }
+
+  #expand-button .triangle-container{
+    display: none;
+  }
+
+  #expand-button .mobile-icon {
+    display: block;
   }
   
   #controls {
