@@ -13,8 +13,8 @@ script_replace = '<script src="script.js"></script>'
 style_replace = '<link rel="stylesheet" type="text/css" href="default.css">'
 
 def getName()
-    return '../' + ARGV[0] unless !ARGV[0].end_with?(".html")
-    return '../' + ARGV[0] + '.html'
+    return '../build/' + ARGV[0] unless !ARGV[0].end_with?(".html")
+    return '../build/' + ARGV[0] + '.html'
 end
  
 begin
