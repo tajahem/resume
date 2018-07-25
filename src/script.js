@@ -4,6 +4,27 @@ let skillWriter;
 let controls;
 let themeManager;
 
+let bgText = `
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 210 297">
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1"
+       width="210"
+       height="297"
+       x="6.1194106e-07"
+       y="8.6545947e-07" />
+    <path
+       style="fill:#c7c7c7;fill-opacity:1"
+       d="M 311.2207,1.3300781 C 402.18845,502.6755 805.31195,11.058522 788.68906,1123.8496 h 5.32071 C 810.63266,11.058499 444.74723,502.67551 353.77944,1.3300781 Z M 1.3300781,5.3203125 V 1123.8496 H 770.11914 C 785.72549,16.273975 152.038,506.05972 61.180207,5.3203125 Z"
+       transform="scale(0.26458333)"/>
+    <path
+       style="fill:#292929;fill-opacity:1"
+       d="m 0.35189575,0.35189575 65.88741525,0 C 69.603452,7.3482878 87.589379,220.66643 36.848701,297 l -36.49680525,0 z" />
+</svg>`;
+let base64SVG = btoa(bgText);
+
+
 /* The state class holds current state information necessary for swapping between
  * the previous and current states. */
 class State {
@@ -17,7 +38,7 @@ class State {
                 XpWriter.xp.job.highlights.flags
                 SkillWriter.skillList.category.skills.skill.flags   
         */
-        this.focus = 's';
+        this.focus = 'd';
         this.page = 'cover';
         this.previousPage = 'resume';
         this.query.addListener(function (){ themeManager.changeTheming(); });
@@ -44,14 +65,17 @@ class ThemeManager{
     }
 
     changeTheming() {
+        let resume = document.getElementById("resume");
 
         if(state.isDesktop) {
             document.getElementById("notice").style.visibility = "visible";
             setTimeout(removeNotice, 5000);
             removeFolding();
+            resume.style.background = 'url("data:image/svg+xml;base64,' + base64SVG + '") no-repeat center center scroll';
         } else {
             document.getElementById("notice").style.visibility = "hidden";
             addFolding();
+            resume.style.background = "#292929";
         }
         setMouseEvents();
 
@@ -559,6 +583,7 @@ class Controls {
 }// end Controls
 
 
+
 function setupDocument() {
     state = new State();
     xpWriter = new XpWriter();
@@ -573,6 +598,7 @@ function setupDocument() {
     let resume = document.getElementById("resume");
     resume.style.visibility = "hidden";
     resume.style.left = "-100%";
+    
 }
 
 function changeFocus(f){
