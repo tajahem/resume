@@ -4,4 +4,19 @@ This is my resume. It features a responsive design, some simple unobtrusive anim
 
 ## Building
 
-The resume works just fine as three separate source files, but in order to deliver a single html page I've included a simple ruby script to combine them. combine.rb takes the output file name as an argument and stores the output in the parent directory under that name.
+While the goal is to deliver everything in a single html file, working with everything in one giant text document is not terribly convenient. As such I've broken down the resume into four parts:
+
+- the style sheet
+- the script
+- the html
+- and a yaml file containing cover letter information
+
+and use a simple ruby script called combine.rb to combine them all. The combine script requires the yaml file path and an output name. 
+
+The yaml cover letter requires:
+
+- contact
+- greeting
+- content
+
+any of these can include html.

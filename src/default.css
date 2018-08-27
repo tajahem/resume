@@ -243,6 +243,10 @@ h2 {
   text-align: center;
 }
 
+#cover-date{
+    padding-bottom: 1em;
+}
+
 /* DESKTOP VERSION */
 @media (min-width: 1024px){
 
